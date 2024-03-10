@@ -20,7 +20,7 @@ let stiker = await sticker(null, s[Math.floor(Math.random() * s.length)], nombre
 await delay(5 * 5000)
 if (stiker) conn.sendFile(m.chat, stiker, 'sticker.webp', '',m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: wm, body: `h`, mediaType: 2, sourceUrl: nn, thumbnail: imagen1}}}, { quoted: m })
 }
-handler.customPrefix = /ڤينوم|فينوم|فنوم|ڤنوم/i 
+handler.customPrefix = /يوهان|يوهان|يوهان|يوهان/i 
 handler.command = new RegExp
 handler.exp = 50
 export default handler
