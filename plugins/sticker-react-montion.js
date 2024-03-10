@@ -3,8 +3,8 @@ let handler = async(m, { conn }) => {
 //if (!db.data.chats[m.chat].stickers && m.isGroup) throw `true`
 if (!db.data.chats[m.chat].stickers && m.isGroup) throw 0
  
-let nombre = '🎃 𝗔𝗡𝗜𝗠𝗘 𝗕𝗢𝗧 🎃'
-let nombre2 = '𝘃𝗲𝗻𝗼𝗺-𝘀𝗼𝗸𝘂𝗻𝗮'
+let nombre = '+22231507309'
+let nombre2 = '+22247072475'
  
 const s = [
 'https://telegra.ph/file/7287ef0b4746312619007.jpg',
