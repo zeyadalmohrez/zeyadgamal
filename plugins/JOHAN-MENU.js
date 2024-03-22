@@ -55,7 +55,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 ❆╼━━❆ •﹝✨﹞• ❆━━╾❆`
 
   conn.sendFile(m.chat, pp, 'darkman.png', str, m, false, { mentions: [who] })
-  m.react(done)
+  m.react(🦉)
 }
 
 handler.help = ['main']
