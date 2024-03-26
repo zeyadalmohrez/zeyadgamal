@@ -1,21 +1,18 @@
+let axios = require('axios')
 
-global.rpg = {
-	
-  role(level) {
-    level = parseInt(level)
-    if (isNaN(level)) return { name: '', level: '' }
-    
-    const role = [
-      { name: "رضيع", level: 0 }, { name: "مبتدئ", level: 4 }, 
-      { name: "ماهر", level: 8 }, { name: "القادر علي التحدي", level: 12 }, 
-      { name: "يتقن", level: 16 }, { name: "المطرشم", level: 20 }, 
-      { name: "بطل", level: 24 }, { name: "العالمي", level: 28 }, 
-      { name: "اسطوره", level: 32 }, { name: "خرافة", level: 36 },
-      { name: "ساحر", level: 48 }, { name: "الساحر القوي", level: 52 }, 
-      { name: "حكيم", level: 56 }, { name: "فاحر", level: 60 }, 
-      { name: "عم الكل", level: 100 }
-    ];
+let handler = async (m, { conn }) => {
+    if (!m.text.includes('صباح الخير')) return // يتأكد من وجود كلمة "صباح الخير" في الرسالة
 
-    return role.reverse().find(role => level >= role.level)
-  }
+    // يقوم بالرد برسالة "صباح النور!"
+    await conn.reply(m.chat, 'صباح النور!', m)
+
+    // يقوم بجلب صورة صباحية
+    let res = await axios.get('https://source.unsplash.com/featured/?morning', { responseType: 'arraybuffer' })
+    if (!res.data) throw 'Failed to fetch data'
+
+    // يقوم بإرسال الصورة كجواب
+    await conn.sendFile(m.chat, res.data, 'morning.jpg', 'صباح الخير 🌞', m, false, { quoted: m })
 }
+
+handler.customPrefix = /^(صباح الخير)$/i // يحدد الكود كيفية استجابة الروبوت على الرسائل التي تحتوي على "صباح الخير"
+module.exports = handler
