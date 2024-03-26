@@ -1,8 +1,6 @@
 import { sticker } from '../lib/sticker.js'
 
-let handler = async(m, { conn }) => {
-    // تأكد من وجود ملف lib/sticker.js واستيراد الدالة sticker بشكل صحيح
-
+let handler = async (m, { conn }) => {
     // إذا لم يكن هناك sticker وكان المحادثة في مجموعة، قم بإلقاء استثناء
     if (!db.data.chats[m.chat].stickers && m.isGroup) throw 0
  
@@ -22,7 +20,10 @@ let handler = async(m, { conn }) => {
     let stiker = await sticker(null, s[Math.floor(Math.random() * s.length)], nombre, nombre2)
     await delay(5 * 5000)
     
-    // تأكد من وجود المتغيرات التالية وتعريفها بالقيم الصحيحة: wm, nn, imagen1
+    // تعريف المتغير nn بالكلام "يوهان"
+    let nn = 'يوهان';
+
+    // استخدام المتغير nn داخل الكود
     if (stiker) conn.sendFile(m.chat, stiker, 'sticker.webp', '',m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: wm, body: `h`, mediaType: 2, sourceUrl: nn, thumbnail: imagen1}}}, { quoted: m })
 }
 
